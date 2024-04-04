@@ -1,1 +1,8 @@
 <h1 class="mt-2">Home Page of Scheduled Tweets</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-primary">
+    <label>
+      <%= flash[:notice] %>
+    </label>
+  </div>
+<% end %>
