@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/", to: "main#index"
   get "/register", to: "register#index"
 
+  post "/register", to: "register#create"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end

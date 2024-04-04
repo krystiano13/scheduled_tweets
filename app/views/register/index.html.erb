@@ -1,5 +1,21 @@
-<h1>Sign Up</h1>
+<main id="regmain">
+  <h1 class="h1">Sign Up</h1>
+  <%= form_with model: @user, url: register_path do |form| %>
+    <%= form.text_field :email, class: "form-control", placeholder: "test@test.com" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "repeat password" %>
+    <%= form.submit "Create Account", class: "btn btn-primary" %>
+  <% end %>
+</main>
 
-<form>
+<style>
+  #regmain h1 {
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+  }
 
-</form>
+  #regmain form input{
+      margin-top : 1rem;
+      margin-bottom : 1rem;
+  }
+</style>
