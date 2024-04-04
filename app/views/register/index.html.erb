@@ -1,11 +1,24 @@
 <main id="regmain">
   <h1 class="h1">Sign Up</h1>
+
   <%= form_with model: @user, url: register_path do |form| %>
+
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        <% @user.errors.full_messages.each do |message| %>
+          <label>
+            <%= message %>
+          </label> <br />
+        <% end %>
+      </div>
+    <% end %>
+
     <%= form.text_field :email, class: "form-control", placeholder: "test@test.com" %>
     <%= form.password_field :password, class: "form-control", placeholder: "password" %>
     <%= form.password_field :password_confirmation, class: "form-control", placeholder: "repeat password" %>
     <%= form.submit "Create Account", class: "btn btn-primary" %>
   <% end %>
+
 </main>
 
 <style>
