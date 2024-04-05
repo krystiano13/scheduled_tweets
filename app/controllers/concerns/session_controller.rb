@@ -4,7 +4,14 @@ class SessionController < ApplicationController
   end
 
   def create
-
+    user = User.find_by(email: params[:email])
+    if user.present? && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Logged In"
+    else
+      flash[:error] = "Wrong Credentials"
+      render :index
+    end
   end
   def delete
     session[:user_id] = nil

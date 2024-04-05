@@ -3,13 +3,9 @@
 
   <%= form_with model: @user, url: login_path do |form| %>
 
-    <% if @user.errors.any? %>
+    <% if flash[:error] %>
       <div class="alert alert-danger">
-        <% @user.errors.full_messages.each do |message| %>
-          <label>
-            <%= message %>
-          </label> <br />
-        <% end %>
+        <label>Wrong Credentials</label>
       </div>
     <% end %>
 
