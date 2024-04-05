@@ -12,12 +12,19 @@
           <li class="nav-item">
             <a class="nav-link active" href="/about">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <%= button_to "Logout", logout_path, method: :delete, class: "nav-link active" %>
-          </li>
+          <% if !session[:user_id] %>
+            <li class="nav-item">
+              <a class="nav-link active" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/login">Log In</a>
+            </li>
+          <% end %>
+          <% if session[:user_id] %>
+            <li class="nav-item">
+              <%= button_to "Logout", logout_path, method: :delete, class: "nav-link active" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
