@@ -6,3 +6,6 @@
     </label>
   </div>
 <% end %>
+<% if @user %>
+  <h2>Logged in as: <%= @user.email %></h2>
+<% end %>
