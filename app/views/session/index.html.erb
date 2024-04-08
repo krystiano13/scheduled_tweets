@@ -5,7 +5,7 @@
 
     <% if flash[:error] %>
       <div class="alert alert-danger">
-        <label>Wrong Credentials</label>
+        <label><%= flash[:error] %></label>
       </div>
     <% end %>
 
