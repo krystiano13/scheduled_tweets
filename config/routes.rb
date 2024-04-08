@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get "/about", to: "about#index"
   get "/register", to: "register#index"
   get "/login", to: "session#index"
-  get "password", to: "password#index"
+  get "/password", to: "password#index"
 
-  patch "password", to: "password#update"
+  patch "/password", to: "password#update"
 
   post "/register", to: "register#create"
   post "/login", to: "session#create"

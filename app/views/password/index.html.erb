@@ -1,16 +1,21 @@
 <main id="regmain">
   <h1 class="h1">Change Password</h1>
 
-  <%= form_with url: password_path do |form| %>
+  <%= form_with model: Current.user, method: :patch, url: password_path do |form| %>
 
-    <% if flash[:error] %>
+    <% if form.object.errors.any? %>
       <div class="alert alert-danger">
-        <label><%= flash[:error] %></label>
+        <% form.object.errors.full_messages.each do |message| %>
+          <label>
+            <%= message %>
+          </label> <br />
+        <% end %>
       </div>
     <% end %>
 
+
     <%= form.password_field :password, class: "form-control", placeholder: "old password" %>
-    <%= form.password_field :password2, class: "form-control", placeholder: "new password" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "new password" %>
     <%= form.submit "Create Account", class: "btn btn-primary" %>
   <% end %>
 
