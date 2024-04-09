@@ -2,4 +2,4 @@
 <br />
 Reset your password:
 <br />
-<%= link_to "Reset Password", password_reset_path %>
+<%= link_to "Reset Password", password_reset_edit_url(token: @token) %>

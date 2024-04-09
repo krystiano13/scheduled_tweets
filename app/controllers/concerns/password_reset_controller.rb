@@ -14,4 +14,24 @@ class PasswordResetController < ApplicationController
       render :index
     end
   end
+
+  def edit
+    @user = User.find_signed!(params[:token], purpose: "password_reset")
+  rescue
+    redirect_to login_path, notice: "Token expired"
+  end
+
+  def update
+    @user = User.find_signed!(params[:token], purpose: "password_reset")
+    if @user.update(password_params)
+      redirect_to root_path, notice: "Password Updated !"
+    else
+      render :index
+      return
+    end
+  end
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
 end

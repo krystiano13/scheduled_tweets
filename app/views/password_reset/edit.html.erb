@@ -1,0 +1,19 @@
+<main id="regmain">
+  <h1 class="h1">Reset Password</h1>
+
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <label><%= flash[:error] %></label>
+    </div>
+  <% end %>
+
+
+  <%= form_with model: @user, method: :patch, url: password_reset_edit_path(token: params[:token]) do |form| %>
+
+    <%= form.password_field :password, class: "form-control", placeholder: "your password" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "confirm your password" %>
+    <%= form.submit "Reset Password", class: "btn btn-primary" %>
+
+  <% end %>
+
+</main>

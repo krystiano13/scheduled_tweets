@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get "/login", to: "session#index"
   get "/password", to: "password#index"
   get "password/reset", to: "password_reset#index"
+  get "password/reset/edit", to: "password_reset#edit"
 
   patch "/password", to: "password#update"
+  patch "password/reset/edit", to: "password_reset#update"
 
   post "/register", to: "register#create"
   post "/login", to: "session#create"
