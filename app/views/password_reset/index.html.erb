@@ -1,7 +1,14 @@
 <main id="regmain">
   <h1 class="h1">Reset Password</h1>
 
-  <%= form_with url: "password/reset" do |form| %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <label><%= flash[:error] %></label>
+    </div>
+  <% end %>
+
+
+  <%= form_with url: password_reset_path do |form| %>
 
     <%= form.text_field :email, class: "form-control", placeholder: "test@test.com" %>
     <%= form.submit "Reset Password", class: "btn btn-primary" %>
