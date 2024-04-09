@@ -7,7 +7,7 @@ class PasswordResetController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     if @user.present?
-      #Send email
+      PasswordMailer.with(user: @user).reset.deliver_later
       redirect_to root_path, notice: "Email for password reset was sent"
     else
       flash[:error] = "Account with this email address does not exist"
