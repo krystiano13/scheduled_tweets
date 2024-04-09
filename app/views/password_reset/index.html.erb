@@ -1,0 +1,12 @@
+<main id="regmain">
+  <h1 class="h1">Log In</h1>
+
+  <%= form_with url: "password/reset" do |form| %>
+
+    <%= form.text_field :email, class: "form-control", placeholder: "test@test.com" %>
+    <%= form.submit "Reset Password", class: "btn btn-primary" %>
+
+  <% end %>
+
+</main>
+

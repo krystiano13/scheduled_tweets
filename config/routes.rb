@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/register", to: "register#index"
   get "/login", to: "session#index"
   get "/password", to: "password#index"
-  get "/password/reset", to: "password_reset#index"
+  get "/password/reset", to: "password_reset#index", as: :password_reset
 
   patch "/password", to: "password#update"
 
